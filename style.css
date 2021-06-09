@@ -1,8 +1,7 @@
-
 .main-area {
-	background-position: center ;
+	background-position: center;
 	background-size: cover;
-	background-image: url(../images/bg.jpg);
+	background-image: url(./images/bg.jpg);
 	background-repeat: no-repeat;
 	min-height: 850px;
 }
@@ -46,7 +45,7 @@ button {
 }
 #meal-detail {
 	background: #fff;
-	width: 35%;
+	width: 400px;
 	border-radius: 12px;
 }
 .detail-food-img {
@@ -56,6 +55,5 @@ button {
 	margin-left: 12px;
 }
 #list-single-box {
-
 	overflow-x: hidden;
 }
