@@ -17,8 +17,12 @@ const loadData =(name)=>{
 						updateUI(data);
 					}
 				})
-				.catch((err) => alert("Please type correct Name!"));
+				.catch(err => {
+                    alert("Please type correct Name!")
+                    dataToggle(false)
+                });
       document.getElementById("inputField").value = " ";
+     
 }
 const updateUI=(food)=>{
 	const mealBox = document.getElementById("list-single-box");
