@@ -7,17 +7,18 @@ searchBtn.addEventListener("click", ()=>{
 
 const loadData =(name)=>{
     const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${name}`
+      dataToggle(true)
     fetch(url)
-    .then(res => res.json())
-    .then(data =>{
-        if (name === " " || name === null){
-            alert("Please type Correct Name!")
-        }else{
-            
-        updateUI(data)
-        }
-    })
-    .catch(err =>alert("Please type correct Name!"))
+				.then((res) => res.json())
+				.then((data) => {
+					if (name === " " || name === null) {
+						alert("Please Type Correct Name!");
+					} else {
+						updateUI(data);
+					}
+				})
+				.catch((err) => alert("Please type correct Name!"));
+      document.getElementById("inputField").value = " ";
 }
 const updateUI=(food)=>{
 	const mealBox = document.getElementById("list-single-box");
@@ -31,6 +32,7 @@ const updateUI=(food)=>{
 		singleBox.innerHTML = singleBoxInfo;
         mealBox.appendChild(singleBox);
 	});
+    dataToggle(false);
     document.getElementById("inputField").value=" ";
 }
 const showDetails=(id)=>{
@@ -55,3 +57,21 @@ const renderInfo = (meal) => {
 
     `;
 };
+
+//enter keypress
+document.getElementById('inputField').addEventListener('keypress', (event)=>{
+    if(event.key === 'Enter'){
+        document.getElementById("search-btn").click();
+    }
+})
+
+
+  
+//   toggle spinner
+const dataToggle =(show)=>{
+	const toggleSpinner = document.getElementById("loading");
+    toggleSpinner.classList.toggle('d-none');
+	const toggleArea = document.getElementById("list-single-box");
+    toggleArea.classList.toggle('d-none');
+    
+}
